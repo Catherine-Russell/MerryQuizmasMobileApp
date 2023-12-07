@@ -68,9 +68,6 @@ fun StyledImage(imageRes: Int, contentDescription: String) {
 
 
 
-
-
-
 @Preview
 @Composable
 fun PreviewCorrectFeedback() {
