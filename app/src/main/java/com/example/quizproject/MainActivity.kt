@@ -11,6 +11,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,12 +40,23 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Preview(showBackground = true)
 fun AppScreen () {
-    Column {
+    var correctAnswer: Boolean? by remember {
+        mutableStateOf(null)
+    }
+
+    val modifier = Modifier
+        .fillMaxSize()
+        .padding(20.dp)
+        .offset(0.dp, (-40).dp)
+
+    Column (modifier = modifier, verticalArrangement = Arrangement.Center) {
         Header()
         Spacer(modifier = Modifier.height(20.dp))
-        Question()
+        Question(correctAnswer, onValueChanged = {
+            correctAnswer = it
+        })
         Spacer(modifier = Modifier.height(20.dp))
-        Answer()
+        Answer(correctAnswer)
         NextButton()
     }
 }

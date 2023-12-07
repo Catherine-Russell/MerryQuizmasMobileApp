@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuizProject</string>
+    <string name="correct_answer">"That's the correct answer user! You're either real smart, or real lucky."</string>
+    <string name="incorrect_answer">"Oops, that's not correct *user*. Better luck next time!"</string>
 </resources>
