@@ -20,17 +20,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun Answer(correctAnswer: Boolean?) {
     when (correctAnswer) {
         true -> Column {
             StyledImage(R.drawable.smart, "Correct Answer")
-            Text(stringResource(R.string.correct_answer))
+            Text(stringResource(R.string.correct_answer),
+                modifier = Modifier.padding(16.dp),
+                textAlign = TextAlign.Center,)
         }
         false -> Column {
             StyledImage(R.drawable.stupid, "Incorrect Answer")
-            Text(stringResource(R.string.incorrect_answer))
+            Text(stringResource(R.string.incorrect_answer),
+                modifier = Modifier.padding(16.dp),
+                textAlign = TextAlign.Center,)
         }
         null -> { /* Do nothing or display nothing */ }
     }
