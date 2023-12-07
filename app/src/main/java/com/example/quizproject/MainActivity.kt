@@ -55,10 +55,10 @@ fun AppScreen () {
         Header()
         Spacer(modifier = Modifier.height(20.dp))
         Question(correctAnswer, onValueChanged = {
-            correctAnswer = it)
+            correctAnswer = it
+        })
         Spacer(modifier = Modifier.height(20.dp))
         Answer(correctAnswer)
-        })
         NextButton()
     }
 }
