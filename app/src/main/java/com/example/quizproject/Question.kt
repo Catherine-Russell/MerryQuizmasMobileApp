@@ -47,7 +47,5 @@ fun Question (correctAnswer:Boolean?, onValueChanged: (Boolean?) -> Unit) {
                 Text(buttonText)
             }
         }
-
-        Text(text = "correct answer = $correctAnswer")
         }
 }
