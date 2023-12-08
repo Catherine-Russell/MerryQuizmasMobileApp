@@ -10,6 +10,10 @@ import com.example.quizproject.QuestionPage
 
 @Composable
 fun QuestionController(quizCompleted: () -> Unit) {
+    var currentScore by remember {
+        mutableIntStateOf(0)
+    }
+
     var currentQuestionNumber by remember {
         mutableIntStateOf(1)
     }
