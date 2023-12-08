@@ -23,8 +23,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
-fun Answer(correctAnswer: Boolean?) {
-    when (correctAnswer) {
+fun Answer(correctResult: Boolean?) {
+    when (correctResult) {
         true -> Column {
             StyledImage(R.drawable.smart, "Correct Answer")
             Text(stringResource(R.string.correct_answer),
@@ -71,7 +71,7 @@ fun StyledImage(imageRes: Int, contentDescription: String) {
 @Preview
 @Composable
 fun PreviewCorrectFeedback() {
-    val correctAnswer = remember { mutableStateOf<Boolean?>(true) }
+    val correctResult = remember { mutableStateOf<Boolean?>(true) }
 
     // Wrap your preview in a Surface with a contrasting background
     Surface(
@@ -79,7 +79,7 @@ fun PreviewCorrectFeedback() {
         modifier = Modifier.fillMaxSize()
     ) {
         Box(modifier = Modifier.padding(16.dp)) {
-            Answer(correctAnswer = correctAnswer.value)
+            Answer(correctResult = correctResult.value)
         }
     }
 }

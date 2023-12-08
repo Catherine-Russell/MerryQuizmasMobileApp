@@ -16,9 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.quizproject.screens.Question1
+import com.example.quizproject.screens.QuestionController
 import com.example.quizproject.screens.StartPage
 import com.example.quizproject.ui.theme.QuizProjectTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,21 +53,21 @@ fun App () {
 
         val navController = rememberNavController()
         val startPageScreen = "START_PAGE"
-        val question1Screen = "Q1"
+        val questionScreen = "Question"
 
         NavHost(navController = navController, startDestination = startPageScreen, builder = {
 
             composable(startPageScreen) {
                 StartPage(quizInitiated = {
-                    navController.navigate(question1Screen)
+                    navController.navigate(questionScreen)
                 })
             }
 
-            composable(question1Screen) {
-                Question1()
+            composable(questionScreen) {
+                QuestionController(quizCompleted = {
+                    navController.navigate(startPageScreen)
+                })
             }
-
         })
-
     }
 }
