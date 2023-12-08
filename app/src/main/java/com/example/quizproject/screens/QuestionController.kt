@@ -20,7 +20,6 @@ fun QuestionController(quizCompleted: () -> Unit) {
         usedIndices.add(randomNum)
         return randomNum
     }
-    println(usedIndices)
     if (currentQuestionNumber <5) {
         QuestionPage(
             currentQuestionNumber = currentQuestionNumber,

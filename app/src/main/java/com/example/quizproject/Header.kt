@@ -9,15 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import kotlin.random.Random
 
-//@Preview
 @Composable
 fun Header() {
     Column {
@@ -36,28 +32,5 @@ fun Header() {
             lineHeight = 1.2.em,
             textAlign = TextAlign.Center,
             )
-    }
-}
-
-
-
-
-
-@Composable
-@Preview(showBackground = true)
-fun Practice() {
-    val usedIndices = mutableListOf<Int>()
-//
-    val remainingIndices = (0 until 12).filterNot { usedIndices.contains(it)}
-    fun newIndex (): Int {
-        val randomNumber = remainingIndices.random()
-        usedIndices.add(randomNumber)
-        return randomNumber
-    }
-
-    var currentIndex = newIndex()
-    Column {
-        Text(text = "this is a test")
-        Text(text = "the current Index is $currentIndex")
     }
 }
