@@ -39,7 +39,7 @@ fun QuestionPage(currentQuestionNumber: Int, currentIndex: Int, onNextClicked: (
         })
         Spacer(modifier = Modifier.height(20.dp))
         Answer(correctResult, currentAnswer)
-        NextButton(correctResult, onNext2 = {
+        NextButton(correctResult, currentQuestionNumber, onNext2 = {
             correctResult = null
             onNextClicked()
         })
