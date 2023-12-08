@@ -27,12 +27,12 @@ fun Header() {
         )
         Spacer(modifier = Modifier.height(20.dp)
         )
-        Text(
-            text = "Welcome to the fantastic 1 question quiz!",
-            fontSize = 30.sp,
-            lineHeight = 1.2.em,
-            textAlign = TextAlign.Center,
-            )
+//        Text(
+//            text = "Welcome to the fantastic 1 question quiz!",
+//            fontSize = 30.sp,
+//            lineHeight = 1.2.em,
+//            textAlign = TextAlign.Center,
+//            )
     }
 }
 

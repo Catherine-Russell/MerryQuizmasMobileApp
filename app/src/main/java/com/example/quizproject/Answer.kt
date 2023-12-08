@@ -5,7 +5,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,37 +28,53 @@ import androidx.compose.ui.text.style.TextAlign
 fun Answer(correctAnswer: Boolean?) {
     when (correctAnswer) {
         true -> Column {
-            StyledImage(R.drawable.smart, "Correct Answer")
+            val imageModifier = Modifier.fillMaxWidth()
+                .size(100.dp) // Adjust the size as needed
             Text(stringResource(R.string.correct_answer),
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(16.dp)
+                    .fillMaxWidth(),
                 textAlign = TextAlign.Center,)
+            Image(
+                painter = painterResource(id = R.drawable.smart),
+                "Correct Answer",
+                modifier = imageModifier)
+
+
         }
         false -> Column {
-            StyledImage(R.drawable.stupid, "Incorrect Answer")
+            val imageModifier = Modifier.fillMaxWidth()
+                .size(100.dp) // Adjust the size as needed
+
             Text(stringResource(R.string.incorrect_answer),
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(16.dp)
+                    .fillMaxWidth(),
                 textAlign = TextAlign.Center,)
+            Image(
+                painter = painterResource(id = R.drawable.stupid),
+                "Incorrect Answer",
+                modifier = imageModifier)
         }
         null -> { /* Do nothing or display nothing */ }
     }
 }
 
-@Composable
-fun StyledImage(imageRes: Int, contentDescription: String) {
-    Box(modifier = Modifier.padding(16.dp)) {
-        Surface(
-            modifier = Modifier
-                .shadow(4.dp, RoundedCornerShape(4.dp))
-                .border(2.dp, Color.Black, RoundedCornerShape(4.dp))
-                .padding(8.dp)
-        ) {
-            Image(
-                painter = painterResource(id = imageRes),
-                contentDescription = contentDescription
-            )
-        }
-    }
-}
+//@Composable
+//fun StyledImage(imageRes: Int, contentDescription: String) {
+//    Modifier.fillMaxWidth()
+//    Box(modifier = Modifier.padding(16.dp)) {
+//        Surface(
+//            modifier = Modifier
+//                .shadow(4.dp, RoundedCornerShape(4.dp))
+//                .border(2.dp, Color.Black, RoundedCornerShape(4.dp))
+//                .padding(8.dp)
+//        ) {
+//            Image(
+//                painter = painterResource(id = imageRes),
+//                contentDescription = contentDescription
+//            )
+//        }
+//    }
+//}
 //
 //@Preview
 //@Composable
