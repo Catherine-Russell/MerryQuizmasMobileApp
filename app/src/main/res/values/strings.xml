@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">QuizProject</string>
     <string name="correct_answer">"That's the correct answer user! You're either real smart, or real lucky."</string>
-    <string name="incorrect_answer">"Oops, that's not correct *user*. Better luck next time!"</string>
+    <string name="incorrect_answer">"Oops, that's incorrect"</string>
+
     <string name="Q1">How many reindeer pull Santa\'s sleigh? (Answer in digits)</string>
     <string name="A1">9</string>
 
