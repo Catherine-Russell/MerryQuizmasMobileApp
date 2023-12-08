@@ -5,11 +5,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun NextButton() {
-    Button(
-        onClick = {},
-        enabled = false
-    ) {
-        Text(text = "Next")
-    }
+fun NextButton(correctAnswer: Boolean?) {
+    if (correctAnswer != null) {
+        Button(
+            onClick = {}, //{ nextPageClicked() },
+            enabled = true
+        ) {
+            Text(text = "Next")
+        }
+    } else {}
 }
