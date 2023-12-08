@@ -43,6 +43,7 @@ fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:
             Button(
                 onClick = {
                     onValueChanged(currentAnswerBoxInput.lowercase().trim() == currentAnswer.lowercase())
+                    currentAnswerBoxInput = ""
                 },
                 enabled = submitEnabled
             ) {

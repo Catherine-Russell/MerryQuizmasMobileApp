@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">QuizProject</string>
-    <string name="correct_answer">"That's the correct answer user! You're either real smart, or real lucky."</string>
-    <string name="incorrect_answer">"Oops, that's incorrect"</string>
+    <string name="correct_answer"> That\'s the correct answer! You\'re either real smart, or real lucky."</string>
+    <string name="incorrect_answer">"Oops, that's incorrect - the correct answer was: "</string>
 
     <string name="Q1">How many reindeer pull Santa\'s sleigh? (Answer in digits)</string>
     <string name="A1">9</string>
@@ -10,7 +10,7 @@
     <string name="A2">Angel</string>
 
     <string name="Q3">How does Santa get into people\'s houses? Through the.... </string>
-    <string name="A3">chimney</string>
+    <string name="A3">Chimney</string>
 
     <string name="Q4">Santa is also known as Saint … what?</string>
     <string name="A4">Nicholas</string>
@@ -19,22 +19,22 @@
     <string name="A5">Jingle Bells</string>
 
     <string name="Q6">What kind of calendar counts down to Christmas? An ______ calendar</string>
-    <string name="A6">advent</string>
+    <string name="A6">Advent</string>
 
     <string name="Q7">On the second day of Christmas, my true love gave me 2 what?</string>
-    <string name="A7">turtle doves</string>
+    <string name="A7">Turtle doves</string>
 
     <string name="Q8">What is the day after Christmas called?</string>
-    <string name="A8">boxing day</string>
+    <string name="A8">Boxing Day</string>
 
     <string name="Q9">What star sign would baby Jesus have been?</string>
-    <string name="A9">capricorn</string>
+    <string name="A9">Capricorn</string>
 
     <string name="Q10">What christmas plant means you have to kiss someone if you stand under it together?</string>
-    <string name="A10">mistletoe</string>
+    <string name="A10">Mistletoe</string>
 
     <string name="Q11">What does santa give naughty children in their stocking?</string>
-    <string name="A11">coal</string>
+    <string name="A11">Coal</string>
 
     <string name="Q12">Which country sends a big Christmas Tree to London almost every year?</string>
     <string name="A12">Norway</string>
@@ -46,5 +46,5 @@
     <string name="A14">Germany</string>
 
     <string name="Q15">Which christmas desserts traditionally contained meat?</string>
-    <string name="A15">mince pies</string>
+    <string name="A15">Mince pies</string>
 </resources>

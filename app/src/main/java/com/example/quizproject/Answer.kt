@@ -25,12 +25,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
-fun Answer(correctResult: Boolean?) {
+fun Answer(correctResult: Boolean?, currentAnswer: String) {
     when (correctResult) {
         true -> Column {
             val imageModifier = Modifier.fillMaxWidth()
                 .size(100.dp) // Adjust the size as needed
-            Text(stringResource(R.string.correct_answer),
+            Text(currentAnswer +"!\n"+ stringResource(R.string.correct_answer),
                 modifier = Modifier.padding(16.dp)
                     .fillMaxWidth(),
                 textAlign = TextAlign.Center,)
@@ -45,7 +45,7 @@ fun Answer(correctResult: Boolean?) {
             val imageModifier = Modifier.fillMaxWidth()
                 .size(100.dp) // Adjust the size as needed
 
-            Text(stringResource(R.string.incorrect_answer),
+            Text(stringResource(R.string.incorrect_answer) + currentAnswer,
                 modifier = Modifier.padding(16.dp)
                     .fillMaxWidth(),
                 textAlign = TextAlign.Center,)
@@ -83,21 +83,3 @@ fun Answer(correctResult: Boolean?) {
 //    Answer(correctAnswer = true)
 //}
 
-
-
-
-@Preview
-@Composable
-fun PreviewCorrectFeedback() {
-    val correctResult = remember { mutableStateOf<Boolean?>(true) }
-
-    // Wrap your preview in a Surface with a contrasting background
-    Surface(
-        color = MaterialTheme.colorScheme.background,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Box(modifier = Modifier.padding(16.dp)) {
-            Answer(correctResult = correctResult.value)
-        }
-    }
-}
