@@ -21,6 +21,7 @@ fun QuestionController(quizCompleted: () -> Unit) {
     var usedIndices by remember {
         mutableStateOf(mutableListOf<Int>())}
     val remainingIndices = (0 until 15).filterNot { usedIndices.contains(it)}
+
     fun newIndex (): Int {
         val randomNum = remainingIndices.random()
         usedIndices.add(randomNum)
