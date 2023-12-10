@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -17,7 +19,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun QuestionPage(currentQuestionNumber: Int, currentIndex: Int, onNextClicked: () -> Unit) {
+fun QuestionPage(
+    currentQuestionNumber: Int,
+    currentIndex: Int,
+    gainPoint: () -> Unit,
+    onNextClicked: () -> Unit) {
+
+
     val currentQuestion = getRandomQuestion(currentIndex)
     val currentAnswer = getRandomAnswer(currentIndex)
 
@@ -40,6 +48,7 @@ fun QuestionPage(currentQuestionNumber: Int, currentIndex: Int, onNextClicked: (
         Spacer(modifier = Modifier.height(20.dp))
         Answer(correctResult, currentAnswer)
         NextButton(correctResult, currentQuestionNumber, onNext2 = {
+            if (correctResult == true) { gainPoint() }
             correctResult = null
             onNextClicked()
         })
