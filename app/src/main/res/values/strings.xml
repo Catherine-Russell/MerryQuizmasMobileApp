@@ -2,49 +2,76 @@
     <string name="app_name">QuizProject</string>
     <string name="correct_answer"> That\'s the correct answer! You\'re either real smart, or real lucky."</string>
     <string name="incorrect_answer">"Oops, that's incorrect - the correct answer was: "</string>
+    <string name="Hint">Here\'s your hint:</string>
+
 
     <string name="Q1">How many reindeer pull Santa\'s sleigh? (Answer in digits)</string>
     <string name="A1">9</string>
+    <string name="H1">Try singing Jingle Bells to help you count them!</string>
+
 
     <string name="Q2">What has wings and sits at the top of the Christmas tree?</string>
     <string name="A2">Angel</string>
+    <string name="H2">It has wings and a halo</string>
+
 
     <string name="Q3">How does Santa get into people\'s houses? Through the.... </string>
     <string name="A3">Chimney</string>
+    <string name="H3">He probably gets very dusty</string>
 
     <string name="Q4">Santa is also known as Saint … what?</string>
     <string name="A4">Nicholas</string>
+    <string name="H4">It begins with N - give the full name</string>
+
 
     <string name="Q5">\'Dashing through the snow, on a one horse open sleigh\' is the opening line to what Christmas song?</string>
     <string name="A5">Jingle Bells</string>
+    <string name="H5">The title has a sound in it</string>
+
 
     <string name="Q6">What kind of calendar counts down to Christmas? An ______ calendar</string>
     <string name="A6">Advent</string>
+    <string name="H6">It begins with A</string>
 
     <string name="Q7">On the second day of Christmas, my true love gave me 2 what?</string>
     <string name="A7">Turtle doves</string>
+    <string name="H7">They are a type of bird</string>
 
     <string name="Q8">What is the day after Christmas called?</string>
     <string name="A8">Boxing Day</string>
+    <string name="H8">It begins with B</string>
+
 
     <string name="Q9">What star sign would baby Jesus have been?</string>
     <string name="A9">Capricorn</string>
+    <string name="H9">It is the goat sign</string>
+
 
     <string name="Q10">What christmas plant means you have to kiss someone if you stand under it together?</string>
     <string name="A10">Mistletoe</string>
+    <string name="H10">They have little white berries</string>
+
 
     <string name="Q11">What does santa give naughty children in their stocking?</string>
     <string name="A11">Coal</string>
+    <string name="H11">It is black and dusty</string>
 
     <string name="Q12">Which country sends a big Christmas Tree to London almost every year?</string>
     <string name="A12">Norway</string>
+    <string name="H12">It is in the North of Europe</string>
+
 
     <string name="Q13">What is the Scrooge\'s first name?</string>
     <string name="A13">Ebenezer</string>
+    <string name="H13">It begins with E</string>
+
 
     <string name="Q14">Which country did the tradition of Christmas trees come from?</string>
     <string name="A14">Germany</string>
+    <string name="H14">It is in Western Europe</string>
 
     <string name="Q15">Which christmas desserts traditionally contained meat?</string>
     <string name="A15">Mince pies</string>
+    <string name="H15">Now they only contain raisins and other dried fruit</string>
+
 </resources>
