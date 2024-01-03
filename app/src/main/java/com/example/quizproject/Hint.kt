@@ -23,11 +23,3 @@ fun Hint(hint:String, hintUsed: () -> Unit) {
         Text(text = "Hint")
     }
 }
-
-//view.findViewById<Button>(R.id.toast_button).setOnClickListener {
-//    // create a Toast with some text, to appear for a short time
-//    val myToast = Toast.makeText(context,
-//        getString(R.string.toast_pop_up), Toast.LENGTH_SHORT)
-//    // show the Toast
-//    myToast.show()
-//}
