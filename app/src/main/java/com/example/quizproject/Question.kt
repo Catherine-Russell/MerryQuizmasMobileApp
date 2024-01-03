@@ -70,4 +70,3 @@ fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:
             }
         }
         }
-//}
