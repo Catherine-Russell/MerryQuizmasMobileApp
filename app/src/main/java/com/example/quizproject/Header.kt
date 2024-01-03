@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 fun Header() {
     Column {
         val imageModifier = Modifier.fillMaxWidth()
-//        val title = textValue
         Image(
             painter = painterResource(id = R.drawable.quiztime),
             contentDescription = "quiz logo",
