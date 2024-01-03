@@ -1,6 +1,8 @@
 package com.example.quizproject
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,19 +22,26 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.input.ImeAction
 
 @Composable
-fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:String, correctResult:Boolean?, onValueChanged: (Boolean?) -> Unit) {
+fun Question (
+    currentQuestionNumber:Int,
+    currentQuestion: String,
+    currentAnswer:String,
+    correctResult:Boolean?,
+    textFieldEnabled:Boolean,
+    disableTextField:() -> Unit,
+    onValueChanged: (Boolean?) -> Unit,
+    currentHint:String,
+    hintUsed: () -> Unit
+) {
 
     var currentAnswerBoxInput by remember {
         mutableStateOf("")
     }
-// Text field cannot be typed into once the answer has been submitted
-    var textFieldEnabled by remember {
-        mutableStateOf(true)
-    }
+
     val submitEnabled: Boolean = currentAnswerBoxInput.isNotEmpty()
     fun submitAnswer() {
         onValueChanged(currentAnswerBoxInput.lowercase().trim() == currentAnswer.lowercase())
-        textFieldEnabled = false
+        disableTextField()
         currentAnswerBoxInput = ""
     }
 
@@ -58,15 +67,22 @@ fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:
                 onDone = {submitAnswer()})
         )
                     }
+    Row (
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        modifier = Modifier.fillMaxWidth()
+    ) {
         if (correctResult == null) {
             Button(
                 onClick = {
-                          submitAnswer()
+                    submitAnswer()
                 },
                 enabled = submitEnabled
             ) {
                 val buttonText = if (submitEnabled) "Submit" else "Enter your answer"
                 Text(buttonText)
             }
+            Hint(currentHint, hintUsed)
+    }
+
         }
         }

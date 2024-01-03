@@ -22,6 +22,7 @@ import com.example.quizproject.Header
 fun StartPage (quizInitiated: () -> Unit ) {
     Column (
         modifier = Modifier,
+//        .fillMaxSize(),
         verticalArrangement= Arrangement.SpaceEvenly,
     ) {
         Header()

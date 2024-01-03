@@ -9,7 +9,7 @@ import androidx.compose.runtime.setValue
 import com.example.quizproject.QuestionPage
 
 @Composable
-fun QuestionController(gainPoint: () -> Unit, quizCompleted: () -> Unit) {
+fun QuestionController(gainPoint: () -> Unit, hintUsed: () -> Unit, quizCompleted: () -> Unit) {
 
     var currentQuestionNumber by remember {
         mutableIntStateOf(1)
@@ -29,6 +29,7 @@ fun QuestionController(gainPoint: () -> Unit, quizCompleted: () -> Unit) {
             currentQuestionNumber = currentQuestionNumber,
             currentIndex = newIndex(),
             gainPoint,
+            hintUsed,
             onNextClicked = {
                 currentQuestionNumber += 1
                 }
@@ -37,6 +38,7 @@ fun QuestionController(gainPoint: () -> Unit, quizCompleted: () -> Unit) {
             currentQuestionNumber = currentQuestionNumber,
             currentIndex = newIndex(),
             gainPoint,
+            hintUsed,
             onNextClicked = {
                 quizCompleted()
             })
