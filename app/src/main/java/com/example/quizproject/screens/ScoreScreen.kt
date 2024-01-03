@@ -1,6 +1,5 @@
 package com.example.quizproject.screens
 
-import android.text.Layout
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,14 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.quizproject.Header
 
 @Composable
-//@Preview(showBackground = true)
 fun ScoreScreen (score: Int, hintCount:Int, startAgain: () -> Unit) {
     val message = if (score >= 3) "Congratulations! Your score is" else "Better luck next time! Your score was"
     val hintMessage = if (hintCount == 1) "You used $hintCount hint" else "You used $hintCount hints"
