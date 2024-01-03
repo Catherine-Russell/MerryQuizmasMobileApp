@@ -31,14 +31,31 @@ import com.example.quizproject.screens.ScoreScreen
 import com.example.quizproject.screens.StartPage
 import com.example.quizproject.ui.theme.QuizProjectTheme
 
+class MusicPlayer(private val mediaPlayer: MediaPlayer) {
+
+    var isMusicPlaying: Boolean by mutableStateOf(false)
+
+    fun toggleMusic() {
+        if (isMusicPlaying) {
+            mediaPlayer.pause()
+            isMusicPlaying = false
+        } else {
+            mediaPlayer.start()
+            isMusicPlaying = true
+        }
+    }
+}
 
 class MainActivity : ComponentActivity() {
     private lateinit var btnToggleMusic : Button
     var mediaPlayer : MediaPlayer? = null
-    private var isMusicPlaying: Boolean by mutableStateOf(false)
+    private lateinit var musicPlayer : MusicPlayer
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mediaPlayer = MediaPlayer.create(this, R.raw.backgroundmusic)
+        musicPlayer = MusicPlayer(mediaPlayer!!)
 
         setContent {
             QuizProjectTheme {
@@ -46,7 +63,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    App()
+                    App(musicPlayer)
                 }
             }
         }
@@ -54,8 +71,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@Preview(showBackground = true)
-fun App() {
+fun App(musicPlayer: MusicPlayer) {
 
     val background = painterResource(id = R.drawable.snowyscene)
     Box {
@@ -66,6 +82,11 @@ fun App() {
             contentScale = ContentScale.Crop
         )
 
+        Button(onClick = {
+            musicPlayer.toggleMusic()
+        }) {
+            Text(text = if (musicPlayer.isMusicPlaying) "Pause Music" else "Play Music")
+        }
         val navController = rememberNavController()
         val startPageScreen = "START_PAGE"
         val questionScreen = "Question"
@@ -103,3 +124,4 @@ fun App() {
         })
     }
 }
+
