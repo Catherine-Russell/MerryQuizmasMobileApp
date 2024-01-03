@@ -26,7 +26,10 @@ fun QuestionPage(
 
     val currentQuestion = getRandomQuestion(currentIndex)
     val currentAnswer = getRandomAnswer(currentIndex)
-
+    // Text field cannot be typed into once the answer has been submitted
+    var textFieldEnabled by remember {
+        mutableStateOf(true)
+    }
 
     var correctResult: Boolean? by remember {
         mutableStateOf(null)
@@ -40,7 +43,7 @@ fun QuestionPage(
     Column (modifier = modifier, verticalArrangement = Arrangement.Center) {
         Header()
         Spacer(modifier = Modifier.height(20.dp))
-        Question(currentQuestionNumber, currentQuestion, currentAnswer, correctResult, onValueChanged = {
+        Question(currentQuestionNumber, currentQuestion, currentAnswer, correctResult, textFieldEnabled, disableTextField = {textFieldEnabled = false}, onValueChanged = {
             correctResult = it
         })
         Spacer(modifier = Modifier.height(20.dp))
@@ -48,6 +51,7 @@ fun QuestionPage(
         NextButton(correctResult, currentQuestionNumber, onNext2 = {
             if (correctResult == true) { gainPoint() }
             correctResult = null
+            textFieldEnabled = true
             onNextClicked()
         })
         }
