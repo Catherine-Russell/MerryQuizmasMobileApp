@@ -26,6 +26,7 @@ fun QuestionPage(
 
     val currentQuestion = getRandomQuestion(currentIndex)
     val currentAnswer = getRandomAnswer(currentIndex)
+    val currentHint = getRandomHint(currentIndex)
     // Text field cannot be typed into once the answer has been submitted
     var textFieldEnabled by remember {
         mutableStateOf(true)
@@ -54,6 +55,7 @@ fun QuestionPage(
             textFieldEnabled = true
             onNextClicked()
         })
+        Hint(currentHint)
         }
     }
 
@@ -69,3 +71,8 @@ fun getRandomAnswer(index: Int): String {
     return stringResource(id = answers[index])
 }
 
+@Composable
+fun getRandomHint(index: Int): String {
+    val hints = arrayOf(R.string.H1, R.string.H2, R.string.H3, R.string.H4, R.string.H5, R.string.H6, R.string.H7, R.string.H8, R.string.H9, R.string.H10, R.string.H11, R.string.H12, R.string.H13, R.string.H14, R.string.H15)
+    return stringResource(id = hints[index])
+}
