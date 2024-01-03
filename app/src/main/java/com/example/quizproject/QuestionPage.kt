@@ -21,6 +21,7 @@ fun QuestionPage(
     currentQuestionNumber: Int,
     currentIndex: Int,
     gainPoint: () -> Unit,
+    hintUsed: () -> Unit,
     onNextClicked: () -> Unit) {
 
 
@@ -55,7 +56,7 @@ fun QuestionPage(
             textFieldEnabled = true
             onNextClicked()
         })
-        Hint(currentHint)
+        Hint(currentHint, hintUsed)
         }
     }
 

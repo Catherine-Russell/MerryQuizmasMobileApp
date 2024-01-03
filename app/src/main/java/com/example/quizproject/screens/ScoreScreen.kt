@@ -17,7 +17,7 @@ import com.example.quizproject.Header
 
 @Composable
 //@Preview(showBackground = true)
-fun ScoreScreen (score: Int, startAgain: () -> Unit) {
+fun ScoreScreen (score: Int, hintCount:Int, startAgain: () -> Unit) {
     val message = ""
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -39,6 +39,12 @@ fun ScoreScreen (score: Int, startAgain: () -> Unit) {
             lineHeight = 50.sp,
             textAlign = TextAlign.Center)
         Spacer(modifier = Modifier.height(40.dp))
+        Text(text = "you used $hintCount hints!",
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = 40.sp,
+            fontFamily = FontFamily.Cursive,
+            lineHeight = 50.sp,
+            textAlign = TextAlign.Center)
         Button(
             onClick = { startAgain() },
             modifier = Modifier.fillMaxWidth()

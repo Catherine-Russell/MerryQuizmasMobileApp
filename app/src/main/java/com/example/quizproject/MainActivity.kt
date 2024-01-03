@@ -63,7 +63,9 @@ fun App() {
         var score: Int by remember {
             mutableIntStateOf(0)
         }
-
+        var hintCount: Int by remember {
+            mutableIntStateOf(0)
+        }
         NavHost(navController = navController, startDestination = startPageScreen, builder = {
 
 
@@ -76,12 +78,13 @@ fun App() {
             composable(questionScreen) {
                 QuestionController(
                     gainPoint = { score += 1 },
+                    hintUsed = { hintCount += 1 },
                     quizCompleted = { navController.navigate(scoreScreen) }
                 )
             }
 
             composable(scoreScreen) {
-                ScoreScreen(score, startAgain = {
+                ScoreScreen(score, hintCount, startAgain = {
                     navController.navigate(startPageScreen)
                     score = 0
                 })
