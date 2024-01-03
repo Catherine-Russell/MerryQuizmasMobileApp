@@ -1,22 +1,28 @@
 package com.example.quizproject
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -25,10 +31,30 @@ import com.example.quizproject.screens.ScoreScreen
 import com.example.quizproject.screens.StartPage
 import com.example.quizproject.ui.theme.QuizProjectTheme
 
+class MusicPlayer(private val mediaPlayer: MediaPlayer) {
+
+    var isMusicPlaying: Boolean by mutableStateOf(false)
+
+    fun toggleMusic() {
+        if (isMusicPlaying) {
+            mediaPlayer.pause()
+            isMusicPlaying = false
+        } else {
+            mediaPlayer.start()
+            isMusicPlaying = true
+        }
+    }
+}
 
 class MainActivity : ComponentActivity() {
+    var mediaPlayer : MediaPlayer? = null
+    private lateinit var musicPlayer : MusicPlayer
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mediaPlayer = MediaPlayer.create(this, R.raw.backgroundmusic)
+        musicPlayer = MusicPlayer(mediaPlayer!!)
 
         setContent {
             QuizProjectTheme {
@@ -36,7 +62,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    App()
+                    App(musicPlayer)
                 }
             }
         }
@@ -44,8 +70,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@Preview(showBackground = true)
-fun App() {
+fun App(musicPlayer: MusicPlayer) {
+
     val background = painterResource(id = R.drawable.snowyscene)
     Box {
         Image(
@@ -55,6 +81,14 @@ fun App() {
             contentScale = ContentScale.Crop
         )
 
+        Button(
+            modifier = Modifier.background(color = Color.Transparent)
+                .align(Alignment.TopEnd),
+            onClick = {
+            musicPlayer.toggleMusic()
+        }) {
+            Text(text = if (musicPlayer.isMusicPlaying) "🔇" else "🔊")
+        }
         val navController = rememberNavController()
         val startPageScreen = "START_PAGE"
         val questionScreen = "Question"
@@ -92,3 +126,4 @@ fun App() {
         })
     }
 }
+
