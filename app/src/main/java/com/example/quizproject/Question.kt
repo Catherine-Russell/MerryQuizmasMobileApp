@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.input.ImeAction
 
 @Composable
 fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:String, correctResult:Boolean?, onValueChanged: (Boolean?) -> Unit) {
@@ -24,7 +26,16 @@ fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:
     var currentAnswerBoxInput by remember {
         mutableStateOf("")
     }
+// Text field cannot be typed into once the answer has been submitted
+    var textFieldEnabled by remember {
+        mutableStateOf(true)
+    }
     val submitEnabled: Boolean = currentAnswerBoxInput.isNotEmpty()
+    fun submitAnswer(): Unit {
+        onValueChanged(currentAnswerBoxInput.lowercase().trim() == currentAnswer.lowercase())
+        textFieldEnabled = false
+        currentAnswerBoxInput = ""
+    }
 
     Column {
         Text(text = "Question $currentQuestionNumber", modifier = Modifier, fontSize = 30.sp)
@@ -36,17 +47,22 @@ fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:
             onValueChange = {
                 currentAnswerBoxInput = it
             },
+
             placeholder = {
                 Text(text = "Enter your answer")
             },
+            enabled = textFieldEnabled,
             modifier = Modifier.fillMaxWidth(),
-//            keyboardOptions = KeyboardActions {  }
+            keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Done),
+            keyboardActions = KeyboardActions(
+                onDone = {submitAnswer()})
         )
+                    }
         if (correctResult == null) {
             Button(
                 onClick = {
-                    onValueChanged(currentAnswerBoxInput.lowercase().trim() == currentAnswer.lowercase())
-                    currentAnswerBoxInput = ""
+                          submitAnswer()
                 },
                 enabled = submitEnabled
             ) {
@@ -55,4 +71,4 @@ fun Question (currentQuestionNumber:Int, currentQuestion: String, currentAnswer:
             }
         }
         }
-}
+//}
