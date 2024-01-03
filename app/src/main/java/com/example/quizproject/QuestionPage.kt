@@ -38,7 +38,7 @@ fun QuestionPage(
     }
 
     val modifier = Modifier
-        .fillMaxSize()
+//        .fillMaxSize()
         .padding(20.dp)
         .offset(0.dp, (-40).dp)
 
