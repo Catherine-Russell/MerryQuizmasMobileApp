@@ -67,6 +67,5 @@ fun getRandomQuestion(index: Int): String {
 fun getRandomAnswer(index: Int): String {
     val answers = arrayOf(R.string.A1, R.string.A2, R.string.A3, R.string.A4, R.string.A5, R.string.A6, R.string.A7, R.string.A8, R.string.A9, R.string.A10, R.string.A11, R.string.A12, R.string.A13, R.string.A14, R.string.A15)
     return stringResource(id = answers[index])
-
 }
 
