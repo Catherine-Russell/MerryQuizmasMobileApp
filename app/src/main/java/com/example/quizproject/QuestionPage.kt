@@ -45,9 +45,17 @@ fun QuestionPage(
     Column (modifier = modifier, verticalArrangement = Arrangement.Center) {
         Header()
         Spacer(modifier = Modifier.height(20.dp))
-        Question(currentQuestionNumber, currentQuestion, currentAnswer, correctResult, textFieldEnabled, disableTextField = {textFieldEnabled = false}, onValueChanged = {
-            correctResult = it
-        })
+        Question(
+            currentQuestionNumber,
+            currentQuestion,
+            currentAnswer,
+            correctResult,
+            textFieldEnabled,
+            disableTextField = {textFieldEnabled = false},
+            onValueChanged = {correctResult = it },
+            currentHint,
+            hintUsed
+        )
         Spacer(modifier = Modifier.height(20.dp))
         Answer(correctResult, currentAnswer)
         NextButton(correctResult, currentQuestionNumber, onNext2 = {
@@ -56,7 +64,6 @@ fun QuestionPage(
             textFieldEnabled = true
             onNextClicked()
         })
-        Hint(currentHint, hintUsed)
         }
     }
 

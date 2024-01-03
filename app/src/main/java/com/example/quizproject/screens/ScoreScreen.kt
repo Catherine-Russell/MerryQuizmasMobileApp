@@ -18,7 +18,6 @@ import com.example.quizproject.Header
 @Composable
 //@Preview(showBackground = true)
 fun ScoreScreen (score: Int, hintCount:Int, startAgain: () -> Unit) {
-    val message = ""
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
