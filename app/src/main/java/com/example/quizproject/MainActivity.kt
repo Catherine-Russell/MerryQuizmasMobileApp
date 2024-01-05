@@ -121,6 +121,7 @@ fun App(musicPlayer: MusicPlayer) {
                 ScoreScreen(score, hintCount, startAgain = {
                     navController.navigate(startPageScreen)
                     score = 0
+                    hintCount = 0
                 })
             }
         })
