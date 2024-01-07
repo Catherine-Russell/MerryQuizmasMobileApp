@@ -43,7 +43,7 @@ Tech used:
 
 ## Original Co-ontributors:
 - [Rachel Roberts](https://github.com/Rachel853)
-- [David O'Donnel](https://github.com/SoundMotives)
+- [David O'Donnell](https://github.com/SoundMotives)
   
 [Link to original group project](https://github.com/SoundMotives/MerryQuizmasApp)
   
