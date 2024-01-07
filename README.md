@@ -22,7 +22,7 @@ Tech used:
 * Android Studio
 
 # Demo
-![Demo_Gif](readme_images/demo_gif.gif)
+![Demo_Gif](./appDemo.gif)
 
 # Features
 - User answers 5 randomly-generated quesitons
