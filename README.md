@@ -41,7 +41,7 @@ Tech used:
 - **Research**: Despite being new to Android Studio, I was able to use a variety of online resources and documentation to implement a range of different features
 
 
-## Original Co-ontributors:
+## Original Contributors:
 - [Rachel Roberts](https://github.com/Rachel853)
 - [David O'Donnell](https://github.com/SoundMotives)
   
